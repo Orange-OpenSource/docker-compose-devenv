@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
 
 # idea
 RUN curl -fSL "http://download-cf.jetbrains.com/idea/ideaIU-2016.2.5.tar.gz" -o /tmp/idea.tar.gz
-RUN cd /opt/ && tar zxf /tmp/idea.tar.gz
+RUN cd /opt/ && tar zxf /tmp/idea.tar.gz && rm /tmp/idea.tar.gz
 RUN ln -s /opt/idea-IU* /opt/idea
 RUN ln -s /opt/idea/bin/idea.sh /usr/bin/idea
 
