@@ -1,0 +1,10 @@
+= docker-compose-devenv
+
+== Base image
+
+docker-intellij-ultimate
+
+== Development environment samples
+
+* sample-intellij-maven
+

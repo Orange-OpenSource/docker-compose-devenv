@@ -1,0 +1,29 @@
+version: '2'
+
+volumes:
+  mavendata:
+  intellijdata:
+  javadata:
+
+services:
+
+  ide:
+#    image: multimediabs/intellij-ultimate
+    build: ../docker-intellij-ultimate/
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${HOME}/.ssh:/home/developer/.ssh
+      - ${HOME}/.gitconfig:/home/developer/.gitconfig
+      - ./src:/home/developer/src
+      - intellijdata:/home/developer/.IntelliJIdea2016.2
+      - mavendata:/home/developer/.m2/repository
+      - javadata:/home/developer/.java
+    environment:
+      - DISPLAY
+      - LANG
+      - LANGUAGE
+      - TERM
+      - TZ="Europe/Paris"
+    ports:
+      - "8080-8090:8080-8090"
+
