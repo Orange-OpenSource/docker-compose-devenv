@@ -8,8 +8,7 @@ volumes:
 services:
 
   ide:
-#    image: multimediabs/intellij-ultimate
-    build: ../docker-intellij-ultimate/
+    image: multimediabs/intellij-ultimate
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${HOME}/.ssh:/home/developer/.ssh
