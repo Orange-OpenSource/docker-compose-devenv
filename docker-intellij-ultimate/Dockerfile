@@ -17,6 +17,8 @@ RUN apt-get update \
 	liquidprompt \
         net-tools \
 	openjdk-8-jdk \
+        openjdk-8-source \
+	python-mysqldb \
 	ssh \
 	subversion \
 	sudo \
