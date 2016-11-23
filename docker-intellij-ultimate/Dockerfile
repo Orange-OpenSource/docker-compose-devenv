@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
   && rm -rf /var/lib/apt/lists/*
 
 # idea
-RUN curl -fSL "http://download-cf.jetbrains.com/idea/ideaIU-2016.2.5.tar.gz" -o /tmp/idea.tar.gz \
+RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2016.3.tar.gz" -o /tmp/idea.tar.gz \
   && cd /opt/ && tar zxf /tmp/idea.tar.gz && rm /tmp/idea.tar.gz \
   && ln -s /opt/idea-IU* /opt/idea \
   && ln -s /opt/idea/bin/idea.sh /usr/bin/idea
@@ -71,4 +71,3 @@ RUN liquidprompt_activate \
 ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /home/${USER}
 CMD  ["idea"]
-
