@@ -15,7 +15,7 @@ services:
       - ${HOME}/.gitconfig:/home/developer/.gitconfig
       - ./src:/home/developer/src
       - ../.:/home/developer/env
-      - intellijdata:/home/developer/.IntelliJIdea2016.2
+      - intellijdata:/home/developer/.IntelliJIdea
       - mavendata:/home/developer/.m2/repository
       - javadata:/home/developer/.java
     environment:

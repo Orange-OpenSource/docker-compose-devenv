@@ -51,6 +51,11 @@ RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2016.3.tar.gz" -o /
   && ln -s /opt/idea-IU* /opt/idea \
   && ln -s /opt/idea/bin/idea.sh /usr/bin/idea
 
+
+# use .IntelliJIdea directory instead of .IntelliJIdeaXXXX.X
+RUN sed -i 's|^# idea.config.path=${user.home}/.IntelliJIdea/config|idea.config.path=${user.home}/.IntelliJIdea/config|' /opt/idea/bin/idea.properties
+RUN sed -i 's|^# idea.system.path=${user.home}/.IntelliJIdea/system|idea.system.path=${user.home}/.IntelliJIdea/system|' /opt/idea/bin/idea.properties
+
 COPY docker-entrypoint.sh /entrypoint.sh
 
 # user developer
@@ -61,7 +66,6 @@ RUN groupadd -g ${GID} ${USER} && \
        chmod 0440 /etc/sudoers.d/${USER}
 
 USER ${USER}
-
 # liquidprompt rox
 RUN liquidprompt_activate \
   && sed -i 's/^LP_ENABLE_TIME=0/LP_ENABLE_TIME=1/' /home/developer/.config/liquidpromptrc \
