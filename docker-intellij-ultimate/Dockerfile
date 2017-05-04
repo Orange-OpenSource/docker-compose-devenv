@@ -45,8 +45,10 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
 	libcanberra-gtk-module \
   && rm -rf /var/lib/apt/lists/*
 
+
+
 # idea
-RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2017.1.1.tar.gz" -o /tmp/idea.tar.gz \
+RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2017.1.2.tar.gz" -o /tmp/idea.tar.gz \
   && cd /opt/ && tar zxf /tmp/idea.tar.gz && rm /tmp/idea.tar.gz \
   && ln -s /opt/idea-IU* /opt/idea \
   && ln -s /opt/idea/bin/idea.sh /usr/bin/idea
