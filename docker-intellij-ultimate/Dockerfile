@@ -24,6 +24,8 @@ RUN apt-get update \
 	sudo \
 	unzip \
 	vim \
+        bzip2 \
+        tree \
   && rm -rf /var/lib/apt/lists/*
 
 # maven
