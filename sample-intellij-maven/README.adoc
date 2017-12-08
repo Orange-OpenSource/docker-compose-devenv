@@ -9,14 +9,11 @@ environment created with :
 
 === Install latest docker version
 
-https://docs.docker.com/engine/installation/linux/ubuntulinux/
+https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
 
 === Install latest docker-compose version
 
-From https://docs.docker.com/compose/install/
-
-    curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
+https://docs.docker.com/compose/install/
 
 === run container
 
