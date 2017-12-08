@@ -23,3 +23,11 @@ https://docs.docker.com/compose/install/
 
  $ docker exec -it sampleintellijmaven_ide_1 bash
 
+=== Warning
+
+The only mounting point with the host is :
+
+ /home/developer/src
+
+The projects sources you are working on should be placed under this directory or subdirectory.
+Otherwise, all your work will be erased if you recreate your container !
