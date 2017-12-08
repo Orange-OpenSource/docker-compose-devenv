@@ -13,11 +13,10 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${HOME}/.ssh:/home/developer/.ssh
       - ${HOME}/.gitconfig:/home/developer/.gitconfig
-      - ./src:/home/developer/src
-      - ../.:/home/developer/env
       - intellijdata:/home/developer/.IntelliJIdea
       - mavendata:/home/developer/.m2/repository
       - javadata:/home/developer/.java
+      - ../:/home/developer/src/
     environment:
       - DISPLAY
       - LANG
