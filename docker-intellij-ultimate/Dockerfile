@@ -1,10 +1,10 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # utils
 RUN apt-get update \
   && apt-get install -qq -y --fix-missing --no-install-recommends \
 	curl \
-    dsh \
+  	dsh \
 	file \
 	git \
 	git-flow \
@@ -15,27 +15,19 @@ RUN apt-get update \
 	less \
 	language-pack-fr \
 	liquidprompt \
-    net-tools \
-	openjdk-8-jdk \
-    openjdk-8-source \
+  	net-tools \
 	python-mysqldb \
 	ssh \
 	subversion \
 	sudo \
 	unzip \
 	vim \
-    bzip2 \
-    tree \
+  	bzip2 \
+  	tree \
+  	openjdk-8-jdk \
+  	openjdk-8-source \
+	maven \
   && rm -rf /var/lib/apt/lists/*
-
-
-# maven
-RUN apt-get update \
-  && apt-get install -qq -y --fix-missing --no-install-recommends maven \
-  && rm -rf /var/lib/apt/lists/*
-RUN curl -fSL http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.6.0/maven-color-logback-1.6.0-bundle.tar.gz -o /tmp/maven-color-logback-1.6.0-bundle.tar.gz \
-    && tar xvfz /tmp/maven-color-logback-1.6.0-bundle.tar.gz -C /usr/share/maven \
-    && rm /tmp/maven-color-logback-1.6.0-bundle.tar.gz /usr/share/maven/lib/slf4j-simple*.jar
 
 
 # lib for idea
@@ -51,7 +43,7 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
 
 
 # idea
-RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2018.1.1.tar.gz" -o /tmp/idea.tar.gz \
+RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2018.1.3.tar.gz" -o /tmp/idea.tar.gz \
   && cd /opt/ && tar zxf /tmp/idea.tar.gz && rm /tmp/idea.tar.gz \
   && ln -s /opt/idea-IU* /opt/idea \
   && ln -s /opt/idea/bin/idea.sh /usr/bin/idea
@@ -72,6 +64,7 @@ RUN groupadd -g ${GID} ${USER} && \
        chmod 0440 /etc/sudoers.d/${USER}
 
 USER ${USER}
+
 
 # liquidprompt rox
 RUN liquidprompt_activate \
