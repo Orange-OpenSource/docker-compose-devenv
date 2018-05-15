@@ -24,8 +24,8 @@ RUN apt-get update \
 	vim \
   	bzip2 \
   	tree \
-  	openjdk-8-jdk \
-  	openjdk-8-source \
+  	openjdk-11-jdk \
+  	openjdk-11-source \
 	maven \
   && rm -rf /var/lib/apt/lists/*
 
