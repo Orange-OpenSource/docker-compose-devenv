@@ -41,7 +41,6 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
 	libcanberra-gtk-module \
   && rm -rf /var/lib/apt/lists/*
 
-
 # idea
 RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2018.1.3.tar.gz" -o /tmp/idea.tar.gz \
   && cd /opt/ && tar zxf /tmp/idea.tar.gz && rm /tmp/idea.tar.gz \
@@ -51,9 +50,6 @@ RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2018.1.3.tar.gz" -o
 # use .IntelliJIdea directory instead of .IntelliJIdeaXXXX.X
 RUN sed -i 's|^# idea.config.path=${user.home}/.IntelliJIdea/config|idea.config.path=${user.home}/.IntelliJIdea/config|' /opt/idea/bin/idea.properties
 RUN sed -i 's|^# idea.system.path=${user.home}/.IntelliJIdea/system|idea.system.path=${user.home}/.IntelliJIdea/system|' /opt/idea/bin/idea.properties
-
-
-COPY docker-entrypoint.sh /entrypoint.sh
 
 
 # user developer
@@ -73,6 +69,5 @@ RUN liquidprompt_activate \
 
 
 # command
-ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /home/${USER}
 CMD  ["idea"]
