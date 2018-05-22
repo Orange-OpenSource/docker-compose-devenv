@@ -15,13 +15,13 @@ https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
 
 https://docs.docker.com/compose/install/
 
-=== run container
+=== run development environment
 
- $ docker-compose up
+ $ sh runIdea.sh
 
 === open bash
 
- $ docker exec -it sampleintellijmaven_ide_1 bash
+ $ docker-compose exec ide bash
 
 === Warning
 

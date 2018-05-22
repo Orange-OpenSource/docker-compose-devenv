@@ -51,6 +51,12 @@ RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2018.1.3.tar.gz" -o
 RUN sed -i 's|^# idea.config.path=${user.home}/.IntelliJIdea/config|idea.config.path=${user.home}/.IntelliJIdea/config|' /opt/idea/bin/idea.properties
 RUN sed -i 's|^# idea.system.path=${user.home}/.IntelliJIdea/system|idea.system.path=${user.home}/.IntelliJIdea/system|' /opt/idea/bin/idea.properties
 
+# increase Inotify Watches Limit
+RUN echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/60-jetbrains.conf
+
+# for IntelliJIdea update
+RUN chmod 777 -R /opt/idea*
+
 
 # user developer
 ENV USER=developer UID=1000 GID=1000
@@ -59,6 +65,7 @@ RUN groupadd -g ${GID} ${USER} && \
        echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USER} && \
        chmod 0440 /etc/sudoers.d/${USER}
 
+# run as developer
 USER ${USER}
 
 
@@ -70,4 +77,4 @@ RUN liquidprompt_activate \
 
 # command
 WORKDIR /home/${USER}
-CMD  ["idea"]
+CMD  ["/bin/bash"]
