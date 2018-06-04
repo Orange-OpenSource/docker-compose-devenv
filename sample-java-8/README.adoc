@@ -1,0 +1,33 @@
+= Sample development environment with intellij ultimate/Java 8/Maven
+
+== Setup docker-compose environment
+
+environment created with :
+
+- docker v1.10
+- docker-compose v1.6
+
+=== Install latest docker version
+
+https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+
+=== Install latest docker-compose version
+
+https://docs.docker.com/compose/install/
+
+=== run development environment
+
+ $ sh runIdea.sh
+
+=== open bash
+
+ $ docker-compose exec ide bash
+
+=== Warning
+
+The only mounting point with the host is :
+
+ /home/developer/src
+
+The projects sources you are working on should be placed under this directory or subdirectory.
+Otherwise, all your work will be erased if you recreate your container !
