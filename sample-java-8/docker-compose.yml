@@ -25,5 +25,4 @@ services:
       - TZ=Europe/Paris
     ports:
       - "8080-8090:8080-8090"
-    privileged: true
     tty: true
