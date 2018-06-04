@@ -22,7 +22,7 @@ services:
       - LANG
       - LANGUAGE
       - TERM
-      - TZ="Europe/Paris"
+      - TZ=Europe/Paris
     ports:
       - "8080-8090:8080-8090"
 
