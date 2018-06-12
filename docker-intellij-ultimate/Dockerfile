@@ -27,7 +27,15 @@ RUN apt-get update \
   	openjdk-11-jdk \
   	openjdk-11-source \
 	maven \
-  && rm -rf /var/lib/apt/lists/*
+  && apt-get remove -y manpages manpages-dev \
+  && apt-get remove -y make \
+  && apt-get autoremove -y \
+  && apt-get autoclean -y \
+  && apt-get clean -y \
+  && rm -rf /usr/share/locale/* \
+  && rm -rf /var/cache/debconf/* \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /usr/share/doc/*
 
 
 # lib for idea
@@ -39,7 +47,15 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
 	libxslt1.1 \
 	libgtk2.0-0 \
 	libcanberra-gtk-module \
-  && rm -rf /var/lib/apt/lists/*
+  && apt-get remove -y manpages manpages-dev \
+  && apt-get remove -y make \
+  && apt-get autoremove -y \
+  && apt-get autoclean -y \
+  && apt-get clean -y \
+  && rm -rf /usr/share/locale/* \
+  && rm -rf /var/cache/debconf/* \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /usr/share/doc/*
 
 # idea
 RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2018.1.3.tar.gz" -o /tmp/idea.tar.gz \
