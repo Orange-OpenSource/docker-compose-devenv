@@ -59,7 +59,7 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
   && rm -rf /usr/share/doc/*
 
 # idea
-RUN curl -fSL "https://download.jetbrains.com/idea/ideaIU-2018.3.2.tar.gz" -o /tmp/idea.tar.gz \
+RUN curl -fSL "https://download.jetbrains.com/idea/ideaIU-2018.3.3.tar.gz" -o /tmp/idea.tar.gz \
   && cd /opt/ && tar zxf /tmp/idea.tar.gz && rm /tmp/idea.tar.gz \
   && ln -s /opt/idea-IU* /opt/idea \
   && ln -s /opt/idea/bin/idea.sh /usr/bin/idea
