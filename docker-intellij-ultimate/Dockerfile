@@ -59,10 +59,12 @@ RUN apt-get update && apt-get install -qq -y --fix-missing --no-install-recommen
   && rm -rf /usr/share/doc/*
 
 # idea
+# chmod 777 is for IntelliJIdea update
 RUN curl -fSL "https://download.jetbrains.com/idea/ideaIU-2018.3.4.tar.gz" -o /tmp/idea.tar.gz \
   && cd /opt/ && tar zxf /tmp/idea.tar.gz && rm /tmp/idea.tar.gz \
   && ln -s /opt/idea-IU* /opt/idea \
   && ln -s /opt/idea/bin/idea.sh /usr/bin/idea
+  && chmod 777 -R /opt/idea*
 
 # use .IntelliJIdea directory instead of .IntelliJIdeaXXXX.X
 RUN sed -i 's|^# idea.config.path=${user.home}/.IntelliJIdea/config|idea.config.path=${user.home}/.IntelliJIdea/config|' /opt/idea/bin/idea.properties
@@ -70,9 +72,6 @@ RUN sed -i 's|^# idea.system.path=${user.home}/.IntelliJIdea/system|idea.system.
 
 # increase Inotify Watches Limit
 RUN echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/60-jetbrains.conf
-
-# for IntelliJIdea update
-RUN chmod 777 -R /opt/idea*
 
 
 # user developer
