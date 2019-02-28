@@ -28,6 +28,7 @@ RUN apt-get update \
   	openjdk-11-jdk \
   	openjdk-11-source \
 	maven \
+	tzdata \
   && apt-get remove -y manpages manpages-dev \
   && apt-get remove -y make \
   && apt-get autoremove -y \
