@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 # utils
 RUN apt-get update \
-  && apt-get install -qq -y --fix-missing --no-install-recommends \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --fix-missing --no-install-recommends \
         bash-completion \
 	curl \
   	dsh \
