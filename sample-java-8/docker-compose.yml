@@ -12,8 +12,11 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${HOME}/.ssh:/home/developer/.ssh
+      - ${HOME}/.gnupg:/home/developer/.gnupg
       - ${HOME}/.gitconfig:/home/developer/.gitconfig
-      - intellijdata:/home/developer/.IntelliJIdea
+      - ${HOME}/.IntelliJIdea/config:/home/developer/.IntelliJIdea/config
+      - ${HOME}/.IntelliJIdea/plugins:/home/developer/.IntelliJIdea/plugins
+      - intellijdata:/home/developer/.IntelliJIdea/system
       - mavendata:/home/developer/.m2/repository
       - javadata:/home/developer/.java
       - ..:/home/developer/src/

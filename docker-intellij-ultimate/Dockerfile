@@ -68,8 +68,9 @@ RUN curl -fSL "https://download-cf.jetbrains.com/idea/ideaIU-2019.3.3.tar.gz" -o
   && chmod 777 -R /opt/idea*
 
 # use .IntelliJIdea directory instead of .IntelliJIdeaXXXX.X
-RUN sed -i 's|^# idea.config.path=${user.home}/.IntelliJIdea/config|idea.config.path=${user.home}/.IntelliJIdea/config|' /opt/idea/bin/idea.properties
-RUN sed -i 's|^# idea.system.path=${user.home}/.IntelliJIdea/system|idea.system.path=${user.home}/.IntelliJIdea/system|' /opt/idea/bin/idea.properties
+RUN sed -i 's|^# idea.config.path=${user.home}/.IntelliJIdea/config|idea.config.path=${user.home}/.IntelliJIdea/config|' /opt/idea/bin/idea.properties \
+	&& sed -i 's|^# idea.system.path=${user.home}/.IntelliJIdea/system|idea.system.path=${user.home}/.IntelliJIdea/system|' /opt/idea/bin/idea.properties \
+	&& sed -i 's|^# idea.plugins.path=${idea.config.path}/plugins|idea.plugins.path=${user.home}/.IntelliJIdea/plugins|' /opt/idea/bin/idea.properties
 
 # increase Inotify Watches Limit
 RUN echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/60-jetbrains.conf
