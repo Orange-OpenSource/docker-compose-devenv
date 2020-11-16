@@ -15,6 +15,7 @@ RUN apt-get update \
 	kmod \
 	less \
 	language-pack-fr \
+	libxss1 \
 	liquidprompt \
   	net-tools \
 	python-mysqldb \
