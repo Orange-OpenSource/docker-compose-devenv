@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@latest
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1.2.0
       - name: Set up Docker Buildx
