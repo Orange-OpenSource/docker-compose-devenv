@@ -9,7 +9,7 @@
 #
 # Author: rudy remoissonnet rudy.remoissonnet@orange.com
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # utils
 RUN apt-get update \
