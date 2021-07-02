@@ -29,7 +29,6 @@ RUN apt-get update \
 	libxss1 \
 	liquidprompt \
   	net-tools \
-	python-mysqldb \
 	ssh \
 	subversion \
 	sudo \
