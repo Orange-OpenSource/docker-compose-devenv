@@ -89,7 +89,9 @@ RUN echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/60-jetbr
 
 
 # user developer
-ENV USER=developer UID=1000 GID=1000
+ARG UID=1000
+ARG GID=1000
+ENV USER=developer UID=${UID} GID=${GID}
 RUN groupadd -g ${GID} ${USER} && \
        useradd -u ${UID} -g ${GID} -G sudo -m ${USER} && \
        echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USER} && \
