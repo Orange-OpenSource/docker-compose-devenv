@@ -3,3 +3,7 @@
 == IntelliJ resources
 
 - https://intellij-support.jetbrains.com/hc/en-us/articles/207240985-Changing-IDE-default-directories-used-for-config-plugins-and-caches-storage
+
+== Build local
+
+    docker build . -t orangeopensource/docker-compose-devenv:18.04
