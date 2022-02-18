@@ -11,3 +11,7 @@
 Change default UID (1000) and GID (1000) of developer user
 
     % docker build --build-arg UID=1001 --build-arg GID=1001
+
+=== local
+
+    docker build . -t orangeopensource/docker-compose-devenv
